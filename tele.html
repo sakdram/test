@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="favicon.png" type="image/png">
+	<title>Телевизор</title>
+	<script src="jquery-3.4.1.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+<video id="active" src="video/1.mp4" onended="nex()" autoplay muted></video>
+
+<div class="container" id="buttons">
+	<button onclick="play()">Play</button>
+	<button onclick="pause()">Pause</button>
+	<button onclick="stop()">Stop</button>
+	<button onclick="playOrPause()" id="playOrPause">PlayOrPause</button>
+	<button onclick="prevChannel()">Previous channel</button>
+	<button onclick="nextChannel()">Next channel</button>
+</div>
+<script>
+	let vid = document.getElementById('active');
+	function play() {
+		vid.play();
+	}
+	function pause() {
+		vid.pause();
+
+	}
+	function stop() {
+		vid.pause();
+		vid.currentTime = 0;
+	}
+	function playOrPause () {
+		if (vid.paused) {
+			vid.play();
+		}
+		else {
+			vid.pause();
+		}
+	}
+	document.addEventListener("keydown", function(space) {
+		document.getElementById("playOrPause").click();
+	});
+</script>
+
+</body>
+</html>
