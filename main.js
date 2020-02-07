@@ -28,3 +28,26 @@ function nex() {
         count = -1;
     }
 }
+let vid = document.getElementById('active');
+function play() {
+    vid.play();
+}
+function pause() {
+    vid.pause();
+
+}
+function stop() {
+    vid.pause();
+    vid.currentTime = 0;
+}
+function playOrPause () {
+    if (vid.paused) {
+        vid.play();
+    }
+    else {
+        vid.pause();
+    }
+}
+document.addEventListener("keydown", function(space) {
+    document.getElementById("playOrPause").click();
+});
